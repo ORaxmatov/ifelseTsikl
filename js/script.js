@@ -1,5 +1,11 @@
 "use strict"
-const numberOfSeries = +prompt("Nechta serial Ko'rdingiz?", "");
+let numberOfSeries;
+
+function serialSoni(){
+  numberOfSeries = +prompt("Nechta serial Ko'rdingiz?", "");
+}
+
+serialSoni();
 
 const seriesDB = {
   count : numberOfSeries,
@@ -10,14 +16,8 @@ const seriesDB = {
 
 }
 
-// const a = prompt("Oxirgi ko'rgan serailnigiz?");
-//  b = prompt("Nechi baho berasiz?");
-//  c = prompt("Oxirgi ko'rgan serailnigiz?");
-//  d = prompt("Nechi baho berasiz?");
-//  seriesDB.series[a] = b;
-//  seriesDB.series[c] = d;
- 
- for(let i=0; i<2; i++){
+function serialHisob(){
+   for(let i=0; i<2; i++){
   console.log(i);
   const a = prompt("Oxirgi ko'rgan serailnigiz?");
   const b = prompt("Nechi baho berasiz?");
@@ -32,16 +32,43 @@ const seriesDB = {
   }
 
  }
+}
 
- if(seriesDB.count<=5){
+serialHisob();
+
+ function serialLevilShow(){
+  if(seriesDB.count<5){
   console.log("Siz kam serial ko'ribsiz");
- }else if(seriesDB.count>5 && seriesDB.count<=10){
+ }else if(seriesDB>5 && seriesDB<10){
   console.log("Siz yaxshi serialchi ekansiz");
- }else if(seriesDB.count>10){
-  console.log("Siz zvezda serialchi ekansiz")
+ }else if(seriesDB.count){
 
  }
- console.log(seriesDB);
+ }
+
+ serialLevilShow();
+
+console.log(seriesDB);
+
+function showDB(hidden){
+  if(!hidden){
+    console.log(seriesDB);
+  }
+}
+
+showDB(seriesDB.privat);
+
+function wiretGenres(){
+  for(let i = 0; i<=2; i++){
+      const genre = prompt(`Yaxshi ko'rgan janringiz ${i+1}`);
+      seriesDB.genres[i] = genre;
+  }
+
+}
+
+wiretGenres();
+ 
+
 
 
 
